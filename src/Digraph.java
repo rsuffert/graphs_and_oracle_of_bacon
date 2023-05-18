@@ -1,4 +1,5 @@
 
+
 /******************************************************************************
  *  Compilation:  javac Digraph.java
  *  Execution:    java Digraph filename.txt
@@ -28,9 +29,7 @@
  *  
  ******************************************************************************/
 
-import java.util.HashSet;
 import java.util.NoSuchElementException;
-import java.util.Set;
 
 /**
  * The {@code Digraph} class represents a directed graph of vertices named 0
@@ -68,6 +67,7 @@ public class Digraph {
 	 * @throws IllegalArgumentException
 	 *             if {@code V < 0}
 	 */
+	@SuppressWarnings("all")
 	public Digraph(int V) {
 		if (V < 0)
 			throw new IllegalArgumentException("Number of vertices in a Digraph must be nonnegative");
@@ -95,6 +95,7 @@ public class Digraph {
 	 * @throws IllegalArgumentException
 	 *             if the input stream is in the wrong format
 	 */
+	@SuppressWarnings("all")
 	public Digraph(In in) {
 		try {
 			this.V = in.readInt();

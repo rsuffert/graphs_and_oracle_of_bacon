@@ -73,9 +73,10 @@ public class Graph {
      * Initializes an empty graph with {@code V} vertices and 0 edges.
      * param V the number of vertices
      *
-     * @param  V number of vertices
+     * @param V number of vertices
      * @throws IllegalArgumentException if {@code V < 0}
      */
+    @SuppressWarnings("all")
     public Graph(int V) {
         if (V < 0) throw new IllegalArgumentException("Number of vertices must be nonnegative");
         this.V = V;
@@ -97,6 +98,7 @@ public class Graph {
      * @throws IllegalArgumentException if the number of vertices or edges is negative
      * @throws IllegalArgumentException if the input stream is in the wrong format
      */
+    @SuppressWarnings("all")
     public Graph(In in) {
         try {
             this.V = in.readInt();
@@ -204,7 +206,6 @@ public class Graph {
         validateVertex(v);
         return adj[v].size();
     }
-
 
     /**
      * Returns a string representation of this graph.

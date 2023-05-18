@@ -11,10 +11,9 @@ public class CaminhamentoEmLargura {
     private boolean[] marked;
     private int[] edgeTo;
     private int[] distTo; // distancia do nodo referencia ao nodo indexado no array
-    private int ref; // nodo referencia no grafo
 
     /**
-     * 
+     * CONSTRUCTOR.
      * @param G grafo base
      * @param s nodo referencia
      */
@@ -22,7 +21,6 @@ public class CaminhamentoEmLargura {
         this.marked = new boolean[G.V()];
         this.edgeTo = new int[G.V()];
         this.distTo = new int[G.V()];
-        this.ref = s;
 
         bfs(G, s);
     }
