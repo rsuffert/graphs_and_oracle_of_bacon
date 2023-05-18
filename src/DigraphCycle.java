@@ -2,6 +2,7 @@
 
 /**
  * Tells whether or not an entire Digraph (directed graph) has a cycle in it, considering all its subgraphs as well.
+ * @author Ricardo Süffert
  */
 public class DigraphCycle {
     /**
@@ -55,15 +56,13 @@ public class DigraphCycle {
      */
     private boolean visit(Digraph g, int v) {
         vertexStages[v] = Stage.GREY;
-        
-        // *for each edge [i -> adj]
-        for (int i=0; i<g.V(); i++) { // *
-            for (int adj : g.adj(i)) { // *
-                if (vertexStages[adj] == Stage.GREY) return true; // if the adjacent vertex is marked as GREY, then someone has reached it and it was not me (CYCLE!)
-                else if (vertexStages[adj] == Stage.WHITE) { // if the adjacent vertex is marked as WHITE
-                    boolean cycleDetected = visit (g, adj); // recursively visit it to look for cycles
-                    if (cycleDetected) return true;
-                }
+
+        // for each edge v -> u in g
+        for (int u : g.adj(v)) {
+            if (vertexStages[u] == Stage.GREY) return true;
+            else if (vertexStages[u] == Stage.WHITE) {
+                boolean cycleDetected = visit(g, u);
+                if(cycleDetected) return true;
             }
         }
         vertexStages[v] = Stage.BLACK;
